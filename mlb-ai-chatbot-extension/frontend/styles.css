@@ -1,0 +1,70 @@
+body {
+    width: 350px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .header {
+    background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  #chat-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    height: 300px;
+  }
+  
+  #user-input {
+    width: calc(100% - 60px);
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .user-msg {
+    text-align: right;
+    color: blue;
+  }
+  
+  .ai-msg {
+    text-align: left;
+    color: green;
+  }
+  
+  .error-msg {
+    color: red;
+  }
+  /* styles.css */
+#floating-chat-button {
+    position: fixed;
+    bottom: 20px; /* 初始位置：距离底部 20px */
+    right: 20px;  /* 初始位置：距离右侧 20px */
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50; /* 图标背景颜色 */
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: grab; /* 鼠标悬停时显示抓手图标 */
+    z-index: 10000;
+    user-select: none;
+  }
+  
+  #floating-chat-button:active {
+    cursor: grabbing;
+  }
+  

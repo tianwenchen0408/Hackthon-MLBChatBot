@@ -1,0 +1,119 @@
+#start-popup {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    height: 600px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 开始窗口 */
+.start-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* 开始窗口关闭按钮 */
+.start-window-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  padding: 2px;
+  z-index: 1;
+}
+
+.start-window-close:hover {
+  opacity: 0.8;
+}
+
+@keyframes move-up-down {
+    0% {
+        transform: translateY(0); /* Start position */
+    }
+    50% {
+        transform: translateY(-20px); /* Move up by 20px */
+    }
+    100% {
+        transform: translateY(0); /* Back to start position */
+    }
+}
+
+
+/* 开始窗口 BatterUp Logo */
+.batterup-logo {
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+
+  animation: move-up-down 2s ease-in-out infinite;
+}
+
+/* 开始窗口 图标 */
+.cute-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.cute-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* 开始窗口 开始按钮 */
+.start-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s;
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+}
+
+.start-button-img {
+  width: 100px;
+  height: auto;
+}
+
+/* 开始窗口： Close button styles */
+.start-window-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    cursor: pointer;
+    padding: 2px;
+    z-index: 1; /* Ensure it appears above other elements */
+  }
+  
+  .start-window-close:hover {
+    opacity: 0.8; /* Add hover effect */
+  }
+

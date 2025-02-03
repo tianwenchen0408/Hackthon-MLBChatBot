@@ -1,0 +1,369 @@
+/* 聊天窗口主体 */
+#chat-popup {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    height: 600px;
+    background: rgb(4, 4, 4);
+    border-radius: 8px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部 */
+.chat-popup-header {
+    width: 336px; /* 宽度减去左右间距 */
+    height: 44px;
+    margin: 10px; /* 控制上下左右的外边距 */
+    background-color: #FC8B40; /* 浅橙色背景 */
+
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 左右对齐 */
+    padding: 0 12px; /* 两边的内边距 */
+
+    position: relative;
+    box-shadow: 
+        inset 0 -4px 0 #945C37, /* 底部深色阴影 */
+        inset -4px 0 0 #945C37, /* 右边深色阴影 */
+        inset 0 4px 0 #FFFFFF, /* 上部白色阴影 */
+        inset 4px 0 0 #FFFFFF; /* 左边白色阴影 */
+
+  }
+  .close-button {
+    background: none; /* 无背景 */
+    border: none; /* 无边框 */
+    font-size: 18px; /* 按钮字体大小 */
+    color: #000; /* 按钮颜色 */
+    cursor: pointer; /* 鼠标样式 */
+  }
+  
+  .close-button:hover {
+    opacity: 0.8; /* 鼠标悬停效果 */
+  }
+  
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 最小化按钮 */
+.minimize-button {
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 8px;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.minimize-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 标题 */
+.header-title {
+    font-family: "Rationale", serif;
+    font-weight: 800; /* 字体粗细 */
+    font-size: 24px; /* 字体大小 */
+    line-height: 35.88px; /* 行高 */
+    color: #000000; /* 文字颜色 */
+    text-align: center; /* 居中对齐 */
+    margin: 0 auto; /* 自动水平居中 */
+    width: 218px; /* 宽度 */
+    height: 30px; /* 高度 */
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */  
+}
+
+/* 最小化状态 */
+#chat-popup.minimized {
+    display: none;
+}
+
+/* 关闭按钮 */
+.chat-popup-close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.chat-popup-close:hover {
+    opacity: 0.8;
+}
+
+/* 聊天主体 */
+.chat-popup-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #000000; 
+    /*background-image: url('chrome.runtime.getURL("assets/bot-background.png")');*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; 
+    /*filter: opacity(0.5);*/
+    scrollbar-width: none; /* 隐藏 Firefox 的滚动条 */
+}
+.chat-popup-body::-webkit-scrollbar {
+    display: none; /* 隐藏 Webkit 浏览器（Chrome、Edge）的滚动条 */
+}
+/* 聊天窗口背景图案区域 */
+.pattern-container {
+    margin: 10px;
+    width: 336px; /* 设置宽度 */
+    height: 82px; /* 设置高度 */
+    background-color: rgba(91, 70, 54, 0.7); /* 背景底色设置透明度 */
+    background-image: linear-gradient(to right, transparent 50%, rgba(91, 70, 54, 0.7) 50%), 
+                      linear-gradient(to bottom, transparent 50%, rgba(91, 70, 54, 0.7) 50%);
+    background-size: 20px 20px; /* 调整图案大小 */
+    display: flex;
+    justify-content: center; /* 内容水平居中（如果需要） */
+    align-items: center; /* 内容垂直居中 */
+    box-shadow: 
+    inset 0 4px 0 rgba(231, 230, 230, 0.5), /* 上部白色阴影，80% 不透明 */
+    inset 0 -4px 0 rgba(148, 92, 55, 0.5), /* 底部深色阴影，80% 不透明 */
+    inset -4px 0 0 rgba(148, 92, 55, 0.5), /* 右侧深色阴影，80% 不透明 */
+    inset 4px 0 0 rgba(231, 230, 230, 0.5); /* 左侧白色阴影，80% 不透明 */
+  
+    margin-top: -5px; /* 减少顶部间隙，紧贴 header */
+
+}
+.commentary-box {
+    max-width: 90%;
+    padding: 5px 10px; /* 调整内边距 */
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    border-radius: 8px; /* 圆角 */
+    color: #fef9f9; /* 黑色字体 */
+    font-family: "Rationale", serif;
+    font-size: 12px; /* 调整字体大小，与标题匹配 */
+    line-height: 1.6; /* 行高 */
+    text-align: center; /* 文本居中 */
+    overflow: hidden; /* 隐藏溢出 */
+    /* white-space: nowrap; 禁止换行 */
+    overflow-wrap: break-word; /* 自动换行 */
+    text-overflow: ellipsis; /* 超出部分省略号 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 添加轻微阴影 */
+}
+
+/* 聊天时间戳 */
+.chat-timestamp {
+    display: block; /* 设置为块元素 */
+    text-align: center; /* 文本居中 */
+    background-color: rgba(252, 139, 64, 0.7); /* 浅橙色背景，70% 不透明 */
+    color: #000000; /* 黑色文本 */
+    font-family: 'Inter', sans-serif; /* 字体 */
+    font-weight: 700; /* 加粗 */
+    font-size: 11px; /* 字体大小 */
+    line-height: 13.31px; /* 行高 */
+    padding: 2px 8px; /* 内边距 */
+    border-radius: 5px; /* 圆角 */
+    margin: 10px auto; /* 自动水平居中 */
+    width: fit-content; /* 自适应宽度 */
+}
+
+
+
+
+/* 聊天消息框 */
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+
+}
+
+.chat-message.bot {
+    justify-content: flex-start;
+    margin-top:20px;
+    margin-bottom: 25px;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    margin-top:25px;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+
+/* 头像 */
+.chat-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 10px;
+    flex-shrink: 0;
+}
+
+/* 气泡样式
+.chat-message .chat-text {
+    max-width: 60%;
+    padding: 8px 12px;
+    border-radius: 15px;
+    word-wrap: break-word;
+    line-height: 1.4;
+} */
+
+/* Bot消息样式 */
+.chat-message.bot .chat-text {
+    left: 5px;
+    position: relative;
+    background: #FC8B40;
+    color: #000000;
+    margin-right: auto;
+    padding: 10px 12px;
+    z-index: 1;
+    min-height: 40px;
+    display: inline-block;
+    image-rendering: pixelated;  /* 确保像素清晰 */
+}
+
+/* 气泡样式 */
+.chat-message.bot .chat-text{
+    position: relative;
+    max-width: 60%;
+    min-height:10px;
+    display: inline-block;
+    background-color: #FC8B40;
+    color: #000;
+    padding: 5px 6px;
+    box-shadow: 
+    /* Top border */
+    0 -3px #FC8B40, 0 -6px #FC8B40, 0 -9px #FFB788,
+    /* Right border */
+    3px 0 #FC8B40, 6px 0 #FC8B40, 9px 0 #FC8B40,
+    /* Top-right corner */
+    3px -3px #FC8B40, 3px -6px #FFB788,6px -3px #FFB788,/* Removed (6px, -6px) */
+    /* Bottom border */
+    0 3px #FC8B40, 0 6px #FC8B40, 0 9px #945C37,
+    /* Bottom-right corner */
+    3px 3px #FC8B40, 3px 6px #945C37, 6px 3px #945C37, /* Removed (6px, 6px) */
+    /* Left border */
+    -3px 0 #FC8B40, -6px 0 #FC8B40, -9px 0 #FC8B40,
+    /* Top-left corner */
+    -3px -3px #FC8B40, -3px -6px #FFB788, -6px -3px #FFB788, /* Removed (-6px, -6px) */
+    /* Bottom-left corner */
+    -3px 3px #FC8B40, -3px 6px #945C37,-6px 3px #945C37; /* Removed (-6px, 6px) */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+
+
+/*user 消息*/
+.chat-message.user .chat-text {
+    left: -5px;
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    margin-left:auto;
+    padding: 5px 6px;
+    z-index: 1;
+    min-height:10px;
+    display: inline-block;
+    box-shadow: 
+    /* Top border */
+    0 -3px #fff, 0 -6px #fff, 0 -9px #fff,
+    /* Right border */
+    3px 0 #fff, 6px 0 #fff, 9px 0 #fff,
+    /* Top-right corner */
+    3px -3px #fff, 3px -6px #fff,6px -3px #fff,/* Removed (6px, -6px) */
+    /* Bottom border */
+    0 3px #fff, 0 6px #fff, 0 9px #939393,
+    /* Bottom-right corner */
+    3px 3px #fff, 3px 6px #939393, 6px 3px #939393, /* Removed (6px, 6px) */
+    /* Left border */
+    -3px 0 #fff, -6px 0 #fff, -9px 0 #fff,
+    /* Top-left corner */
+    -3px -3px #fff, -3px -6px #fff, -6px -3px #fff, /* Removed (-6px, -6px) */
+    /* Bottom-left corner */
+    -3px 3px #fff, -3px 6px #939393,-6px 3px #939393; /* Removed (-6px, 6px) */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+
+
+/* 底部输入栏 */
+.chat-popup-footer {
+    display: flex;
+    padding: 10px;
+
+}
+
+.chat-popup-footer input {
+    flex: 1;
+    height: 36px; /* 与设计图高度保持一致 */
+    padding: 0 12px; /* 左右内边距 */
+    background-color: #FC8B40; /* 浅橙色背景 */
+    color: #4A4A4A; /* 输入文本颜色 */
+    font-size: 14px; /* 文本大小 */
+    border: none; /* 去掉边框 */
+    box-shadow: 
+        inset 0 -4px 0 #945C37, /* 底部深色阴影 */
+        inset -4px 0 0 #945C37, /* 右边深色阴影 */
+        inset 0 4px 0 #FFFFFF, /* 上部白色阴影 */
+        inset 4px 0 0 #FFFFFF; /* 左边白色阴影 */
+    outline: none; /* 去掉点击高亮边框 */
+}
+
+
+/* 修改底部发送按钮样式 */
+.chat-popup-footer button.send-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #000000;
+    border: none;
+}
+
+.chat-popup-footer button.send-button:hover {
+    background: #000000;
+}
+
+.send-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* pre-defined 问题笑脸button */
+/* 修改底部发送按钮样式 */
+.chat-popup-footer button.question-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #000000;
+    border: none;
+}
+
+.chat-popup-footer button.question-button:hover {
+    background: #000000;
+}
+
+.question-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+

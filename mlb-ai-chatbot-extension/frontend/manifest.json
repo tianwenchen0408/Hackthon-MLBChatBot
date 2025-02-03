@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "MLB AI Chatbot",
+  "version": "1.0",
+  "description": "实时 MLB 比赛 AI 策略分析助手",
+  "permissions": ["storage","tabs", "activeTab", "scripting"],
+  "host_permissions": ["https://statsapi.mlb.com/*", "http://127.0.0.1:5001/*"],
+  "action": {
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.mlb.com/*"],
+      "js": ["content.js", "startWindow.js", "chatWindow.js"],
+      "css": ["chatWindow.css", "startWindow.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/user-avatar-2.png",
+        "assets/bot-avatar-2.png",
+        "assets/close.png",
+        "assets/send.png",
+        "assets/predefined-questions.png",
+        "assets/user-bubble.svg",
+        "assets/bot-bubble.svg",
+        "assets/bot.png",
+        "assets/batterup-logo.png",
+        "assets/start-button.png",
+        "assets/cute-icon-1.png",
+        "assets/cute-icon-2.png",
+        "assets/bot-background.png"
+      ],
+      "matches": ["*://*.mlb.com/*"]
+    }
+  ]
+}

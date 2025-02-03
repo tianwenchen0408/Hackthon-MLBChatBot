@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./mlb-ai-chatbot-extension/backend/ routers"
+    ]
+}

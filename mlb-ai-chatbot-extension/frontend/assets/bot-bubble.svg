@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="177" height="66" viewBox="0 0 177 66" preserveAspectRatio="none" fill="none">
+  <!-- Top border -->
+  <path d="M11.8 0H165.2V3.3H11.8V0Z" fill="black"/>
+  <path d="M165.2 3.3H168.15V6.6H165.2V3.3Z" fill="black"/>
+  
+  <!-- Right border -->
+  <path d="M174.05 13.2H177V52.8H174.05V13.2Z" fill="black"/>
+  
+  <!-- Corner pieces -->
+  <path d="M171.1 9.9H174.05V13.2H171.1V9.9Z" fill="black"/>
+  <path d="M171.1 52.8H174.05V56.1H171.1V52.8Z" fill="black"/>
+  <path d="M168.15 56.1H171.1V59.4H168.15V56.1Z" fill="black"/>
+  <path d="M165.2 59.4H168.15V62.7H165.2V59.4Z" fill="black"/>
+  
+  <!-- Bottom border -->
+  <path d="M11.8 62.7H165.2V66H11.8V62.7Z" fill="black"/>
+  <path d="M168.15 6.6H171.1V9.9H168.15V6.6Z" fill="black"/>
+  
+  <!-- Left border -->
+  <path d="M8.85 3.3H11.8V6.6H8.85V3.3Z" fill="black"/>
+  <path d="M2.95 52.8H5.9V56.1H2.95V52.8Z" fill="black"/>
+  <path d="M8.85 59.4H11.8V62.7H8.85V59.4Z" fill="black"/>
+  <path d="M5.9 56.1H8.85V59.4H5.9V56.1Z" fill="black"/>
+  <path d="M0 13.2H2.95V52.8H0V13.2Z" fill="black"/>
+  <path d="M2.95 9.9H5.9V13.2H2.95V9.9Z" fill="black"/>
+  <path d="M5.9 6.6H8.85V9.9H5.9V6.6Z" fill="black"/>
+  
+  <!-- Main fill -->
+  <path d="M11.8 3.3H165.2V62.7H11.8V3.3Z" fill="#FC8B40"/>
+  <path d="M8.85 6.6H168.15V59.4H8.85V6.6Z" fill="#FC8B40"/>
+  <path d="M5.9 9.9H171.1V56.1H5.9V9.9Z" fill="#FC8B40"/>
+  <path d="M2.95 13.2H174.05V52.8H2.95V13.2Z" fill="#FC8B40"/>
+  
+  <!-- Highlights -->
+  <path d="M11.8 3.3H165.2V6.6H11.8V3.3Z" fill="#FFB788"/>
+  <path d="M8.85 6.6H11.8V9.9H8.85V6.6Z" fill="#FFB788"/>
+  <path d="M165.2 6.6H168.15V9.9H165.2V6.6Z" fill="#FFB788"/>
+  <path d="M171.1 13.2H174.05V16.5H171.1V13.2Z" fill="#FFB788"/>
+  
+  <!-- Shadows -->
+  <path d="M171.1 49.5H174.05V52.8H171.1V49.5Z" fill="#945C37"/>
+  <path d="M165.2 56.1H168.15V59.4H165.2V56.1Z" fill="#945C37"/>
+  <path d="M168.15 52.8H171.1V56.1H168.15V52.8Z" fill="#945C37"/>
+  <path d="M168.15 9.9H171.1V13.2H168.15V9.9Z" fill="#FFB788"/>
+  <path d="M2.95 13.2H5.9V16.5H2.95V13.2Z" fill="#FFB788"/>
+  <path d="M2.95 49.5H5.9V52.8H2.95V49.5Z" fill="#945C37"/>
+  <path d="M11.8 59.4H165.2V62.7H11.8V59.4Z" fill="#945C37"/>
+  <path d="M8.85 56.1H11.8V59.4H8.85V56.1Z" fill="#945C37"/>
+  <path d="M5.9 52.8H8.85V56.1H5.9V52.8Z" fill="#945C37"/>
+  <path d="M5.9 9.9H8.85V13.2H5.9V9.9Z" fill="#FFB788"/>
+</svg>
